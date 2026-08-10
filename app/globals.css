@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-heading: var(--font-zilla-slab), ui-serif, Georgia, "Times New Roman", serif;
+  --font-hand: var(--font-handwriting), "Comic Sans MS", cursive;
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ruled: var(--ruled);
+  --color-stamp: var(--stamp);
+  --color-stamp-deep: var(--stamp-deep);
+  --color-rxred: var(--rxred);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.2);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Aged paper + ink clinical palette */
+  --paper: #f5f1e6;
+  --paper-raised: #fbf8ef;
+  --ruled: #d8d2c0;
+  --ink: #232b36;
+  --stamp: #1d5fa8;
+  --stamp-deep: #15508f;
+  --rxred: #b01e2e;
+
+  --background: #f5f1e6;
+  --foreground: #232b36;
+  --card: #f9f5ea;
+  --card-foreground: #232b36;
+  --popover: #fcfaf2;
+  --popover-foreground: #232b36;
+  --primary: #1d5fa8;
+  --primary-foreground: #f7f3e8;
+  --secondary: #eae3cf;
+  --secondary-foreground: #232b36;
+  --muted: #ece6d4;
+  --muted-foreground: #77705f;
+  --accent: #2c4a6e;
+  --accent-foreground: #f5f1e6;
+  --destructive: #b01e2e;
+  --border: rgb(35 43 54 / 0.16);
+  --input: rgb(35 43 54 / 0.24);
+  --ring: #1d5fa8;
+  --chart-1: #1d5fa8;
+  --chart-2: #2c4a6e;
+  --chart-3: #b01e2e;
+  --chart-4: #77705f;
+  --chart-5: #232b36;
+  --radius: 0.4rem;
+  --sidebar: #1c2736;
+  --sidebar-foreground: #c9c4b0;
+  --sidebar-primary: #6e9fcf;
+  --sidebar-primary-foreground: #10151d;
+  --sidebar-accent: #26344a;
+  --sidebar-accent-foreground: #f2eede;
+  --sidebar-border: rgb(216 210 190 / 0.12);
+  --sidebar-ring: #6e9fcf;
+}
+
+.dark {
+  --paper: #141b26;
+  --paper-raised: #1c2635;
+  --ruled: rgb(232 226 208 / 0.14);
+  --ink: #e8e2d0;
+  --stamp: #4a8cc6;
+  --stamp-deep: #3a74ad;
+  --rxred: #e04550;
+
+  --background: #141b26;
+  --foreground: #e8e2d0;
+  --card: #1c2635;
+  --card-foreground: #e8e2d0;
+  --popover: #1c2635;
+  --popover-foreground: #e8e2d0;
+  --primary: #4a8cc6;
+  --primary-foreground: #0f1520;
+  --secondary: #2a3547;
+  --secondary-foreground: #e8e2d0;
+  --muted: #232f41;
+  --muted-foreground: #a39b83;
+  --accent: #3a5678;
+  --accent-foreground: #e8e2d0;
+  --destructive: #e04550;
+  --border: rgb(232 226 208 / 0.12);
+  --input: rgb(232 226 208 / 0.16);
+  --ring: #4a8cc6;
+  --chart-1: #4a8cc6;
+  --chart-2: #3a5678;
+  --chart-3: #e04550;
+  --chart-4: #a39b83;
+  --chart-5: #e8e2d0;
+  --sidebar: #141b26;
+  --sidebar-foreground: #bdb7a4;
+  --sidebar-primary: #4a8cc6;
+  --sidebar-primary-foreground: #0f1520;
+  --sidebar-accent: #243247;
+  --sidebar-accent-foreground: #f2eede;
+  --sidebar-border: rgb(232 226 208 / 0.1);
+  --sidebar-ring: #4a8cc6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(1100px 700px at 88% -8%, rgb(29 95 168 / 0.055), transparent 55%),
+      radial-gradient(900px 620px at -8% 108%, rgb(176 30 46 / 0.045), transparent 55%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* A sheet of aged paper: warm surface, ink edge, prescription-pad red margin rule */
+  .paper-sheet {
+    position: relative;
+    border-radius: var(--radius);
+    background-color: var(--card);
+    border: 1px solid rgb(35 43 54 / 0.14);
+    box-shadow:
+      0 1px 1.5px rgb(35 43 54 / 0.06),
+      0 10px 28px -14px rgb(35 43 54 / 0.24);
+  }
+  .paper-sheet::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 2px;
+    border-radius: 1px 0 0 1px;
+    background: linear-gradient(180deg, rgb(176 30 46 / 0.75), rgb(176 30 46 / 0.25));
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  /* Dark ink-blue ledger sidebar with faint pinstripes */
+  .ledger {
+    background-color: var(--sidebar);
+    background-image:
+      repeating-linear-gradient(90deg, rgb(255 255 255 / 0.018) 0 1px, transparent 1px 92px),
+      linear-gradient(180deg, rgb(255 255 255 / 0.035), transparent 260px);
+  }
+
+  /* Ink-stamped label */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1.5px solid currentColor;
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    font-family: var(--font-plex-sans), sans-serif;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rxred);
+    white-space: nowrap;
+    transform: rotate(-2deg);
+    pointer-events: none;
+  }
+
+  /* ---- Signature scan-line sweep (respects reduced-motion) ---- */
+  .scan-frame {
+    position: relative;
+    overflow: hidden;
+  }
+  .scan-beam,
+  .scan-wash {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    animation: scan-sweep 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: transform;
+    pointer-events: none;
+  }
+  .scan-beam {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgb(29 95 168 / 0.95), transparent);
+    box-shadow:
+      0 0 14px 2px rgb(29 95 168 / 0.45),
+      0 0 46px 10px rgb(29 95 168 / 0.22);
+  }
+  .scan-wash {
+    height: 30%;
+    background: linear-gradient(180deg, transparent, rgb(29 95 168 / 0.07), transparent);
+  }
+  @keyframes scan-sweep {
+    from {
+      transform: translateY(-24px);
+    }
+    to {
+      transform: translateY(var(--scan-travel, 480px));
+    }
+  }
+  .scan-sweep-once {
+    animation-iteration-count: 1;
+  }
+
+  /* Numbered pipeline steps (OCR -> correction -> structuring) */
+  .pipeline-step {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-radius: var(--radius);
+    padding: 0.625rem 0.75rem;
+    border: 1px solid rgb(35 43 54 / 0.1);
+    transition: background-color 150ms ease, border-color 150ms ease;
+  }
+  .pipeline-step.active {
+    background: rgb(29 95 168 / 0.07);
+    border-color: rgb(29 95 168 / 0.3);
+  }
+  .pipeline-step.done {
+    border-color: rgb(35 43 54 / 0.1);
+  }
+
+  /* ---- Physical prescription document (hero + scroll demo) ---- */
+  .rx-doc {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: var(--paper-raised);
+    border: 1px solid rgb(35 43 54 / 0.16);
+    background-image:
+      linear-gradient(180deg, rgb(255 255 255 / 0.55), transparent 34%),
+      repeating-linear-gradient(180deg, transparent 0 22px, var(--ruled) 22px 23px);
+    box-shadow:
+      0 1px 0 rgb(35 43 54 / 0.05),
+      0 3px 6px -2px rgb(35 43 54 / 0.1),
+      0 26px 52px -26px rgb(35 43 54 / 0.45);
+    transform: translateZ(0);
+  }
+  .rx-doc::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(180deg, rgb(176 30 46 / 0.55), rgb(176 30 46 / 0.12));
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 6;
+  }
+  .rx-hand {
+    position: absolute;
+    inset: 0;
+    padding: 2.4rem 1.6rem 1.6rem;
+    color: var(--ink);
+    font-family: var(--font-handwriting), "Comic Sans MS", cursive;
+    line-height: 1.65;
+    transform: translateZ(0);
+  }
+  .rx-digit-wipe {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    transform: translateY(-101%);
+    will-change: transform;
+    z-index: 3;
+  }
+  .rx-digit {
+    position: absolute;
+    inset: 0;
+    background: var(--paper-raised);
+    padding: 2rem 1.6rem 1.6rem;
+  }
+  .rx-beam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(29 95 168 / 0.9), transparent);
+    box-shadow:
+      0 0 12px 2px rgb(29 95 168 / 0.4),
+      0 0 42px 10px rgb(29 95 168 / 0.18);
+  }
+  .rx-glow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 32%;
+    background: linear-gradient(180deg, transparent, rgb(29 95 168 / 0.08));
+  }
+  .rx-line {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .rx-line.is-shown {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---- File-folder tab bar ---- */
+  .tab-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35rem;
+    padding: 0 0.5rem;
+  }
+  .tab {
+    font-family: var(--font-plex-sans), sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    background: var(--muted);
+    border: 1px solid rgb(35 43 54 / 0.14);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 0.5rem 0.95rem 0.55rem;
+    line-height: 1;
+    transition: color 150ms ease, background-color 150ms ease, transform 150ms ease;
+  }
+  .tab:hover {
+    color: var(--ink);
+    background: var(--paper-raised);
+    transform: translateY(-1px);
+  }
+  .tab.is-active {
+    color: var(--ink);
+    background: var(--paper-raised);
+    box-shadow: inset 0 2px 0 var(--stamp);
+  }
+  .tab:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Fine dashed ink rule */
+  .ink-rule {
+    height: 1px;
+    background-image: linear-gradient(90deg, var(--ink) 0 3px, transparent 3px);
+    background-size: 7px 1px;
+    opacity: 0.22;
+  }
+
+  /* Mono "instrument spec" chip */
+  .spec-chip {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--stamp);
+    background: rgb(29 95 168 / 0.07);
+    border: 1px solid rgb(29 95 168 / 0.18);
+    border-radius: 3px;
+    padding: 0.15rem 0.4rem;
+    white-space: nowrap;
+  }
+
+  /* Small red "Rx" glyph stamp on documents */
+  .rx-glyph {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.55em;
+    height: 1.55em;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--rxred);
+    transform: rotate(-6deg);
+    box-shadow: inset 0 0 0 0.5px currentColor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-beam,
+  .scan-wash {
+    animation: none;
+  }
+  .pipeline-step {
+    transition: none;
+  }
+  .rx-line {
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
