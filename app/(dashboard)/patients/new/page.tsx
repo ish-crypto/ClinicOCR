@@ -13,9 +13,9 @@ export default function NewPatientPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Patient Information</CardTitle>
+          <CardTitle>Patient Registration Form</CardTitle>
           <CardDescription>
-            This information will be used to track prescription history.
+            Please fill out the form below to register a new patient.
           </CardDescription>
         </CardHeader>
         <CardContent>
