@@ -14,6 +14,7 @@ import {
   X,
   Stethoscope,
   ChevronRight,
+  Languages,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -174,6 +175,23 @@ export function Sidebar({ className, onNavigate, showClose }: SidebarProps = {})
               <Upload className="h-4 w-4 text-slate-400" />
               <span>Upload Prescription</span>
             </Link>
+          </div>
+        </div>
+
+        {/* Language Support */}
+        <div className="space-y-1">
+          <p className="px-3 pb-1.5 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400">
+            Language
+          </p>
+          <div className="mx-1 p-3 rounded-xl bg-gradient-to-br from-sky-50 to-blue-50/40 border border-sky-100">
+            <div className="flex items-center gap-2 mb-1.5">
+              <Languages className="h-4 w-4 text-sky-600 shrink-0" />
+              <span className="text-xs font-bold text-slate-800">Hindi ↔ English</span>
+            </div>
+            <p className="text-[0.65rem] text-slate-500 leading-relaxed">
+              Translate prescription text from Hindi to English or vice versa on any prescription
+              page.
+            </p>
           </div>
         </div>
       </div>

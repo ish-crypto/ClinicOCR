@@ -8,18 +8,14 @@ import {
   FileImage,
   Stethoscope,
   Star,
-  Download,
   Eye,
-  Activity,
-  FileText,
-  Clock,
-  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { DownloadPdfButton } from "@/components/prescription/download-pdf-button";
+import { PrescriptionTranslatorPanel } from "@/components/prescription/prescription-translator-panel";
 import { SAMPLE_PRESCRIPTIONS, SamplePrescription } from "@/lib/sample-data";
 
 export const dynamic = "force-dynamic";
@@ -324,6 +320,14 @@ export default async function PrescriptionDetailPage(props: {
           </Card>
         </div>
       </div>
+
+      {/* Language Converter Panel */}
+      <PrescriptionTranslatorPanel
+        rawOcr={prescription.rawOcr}
+        correctedText={prescription.correctedText}
+        aiSummary={prescription.aiSummary}
+        doctorNotes={prescription.doctorNotes}
+      />
     </div>
   );
 }
